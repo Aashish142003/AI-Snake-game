@@ -8,7 +8,7 @@ import traceback
 from enum import Enum, unique
 
 from snake.base import Direc, Map, PointType, Pos, Snake
-from snake.gui import GameWindow
+# from snake.gui import GameWindow
 from snake.solver import GreedySolver, HamiltonSolver
 
 
@@ -106,6 +106,7 @@ class Game:
             self._run_dqn_train()
             self._plot_history()
         else:
+            from snake.gui import GameWindow
             window = GameWindow("Snake", self._conf, self._map, self, self._on_exit, (
                 ('<w>', lambda e: self._update_direc(Direc.UP)),
                 ('<a>', lambda e: self._update_direc(Direc.LEFT)),
